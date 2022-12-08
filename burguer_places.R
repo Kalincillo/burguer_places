@@ -1,9 +1,20 @@
 library(ggmap)
 library(mapproj)
 library(googleway)
-llave <- ""
+
+llave <- "AIzaSyCnX6AfKnexQFfMGclUZyyvaSxxz75-LA8"
 
 register_google(llave)
 # map <- get_map(location="mexico", zoom=3, maptype="terrain")
 
-google_places(search_string = 'burguer', location=c(20.687408505134194, -103.35158714983811), radius=3218, key=llave)
+places <- google_places(search_string = 'ramen', 
+                        location=c(20.687408505134194, -103.35158714983811), 
+                        radius=5000, key=llave)
+
+places$results$geometry$location
+
+places_2 <- google_places(search_string = 'ramen', 
+                        location=c(20.687408505134194, -103.35158714983811), 
+                        radius=5000, key=llave, 
+                        page_token=places$next_page_token )
+
