@@ -2,7 +2,7 @@ library(ggmap)
 library(mapproj)
 library(googleway)
 
-llave <- "AIzaSyCnX6AfKnexQFfMGclUZyyvaSxxz75-LA8"
+llave <- ""
 
 register_google(llave)
 # map <- get_map(location="mexico", zoom=3, maptype="terrain")
