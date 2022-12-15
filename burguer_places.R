@@ -3,10 +3,8 @@ library(mapproj)
 library(googleway)
 
 
-llave <- ""
-
-register_google(llave)
-# map <- get_map(location="mexico", zoom=3, maptype="terrain")
+key <- Sys.getenv("pw")
+register_google(key)
 
 places <- google_places(search_string = 'ramen', 
                         location=c(20.687408505134194, -103.35158714983811), 
@@ -20,4 +18,6 @@ places_2 <- google_places(search_string = 'ramen',
                         page_token=places$next_page_token )
 places_2
 
-qmap('Guadalajara', zoom = 15, maptype = "satellite")
+qmap('Guadalajara', zoom = 12, maptype = "satellite")
+
+getwd()
