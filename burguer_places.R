@@ -1,20 +1,24 @@
+# This code will find the best reviewed burger places in my local town
+# ZMG and the distance between them, i will use the rating system from
+# Google maps and connect to the Google cloud API with R
+
 library(ggmap)
 library(mapproj)
 library(googleway)
 library(sp)
 library(dplyr)
 
-pass <- Sys.getenv("PASSWORD")
-register_google(pass)
+# register to the API
+register_google(Sys.getenv("PASSWORD"))
 
 places <- google_places(search_string = 'ramen', 
                         location=c(20.687408505134194, -103.35158714983811), 
-                        radius=5000, key=pass)
+                        radius=5000, key=Sys.getenv("PASSWORD"))
 
 places$results$geometry$location
 
 
-# coord_1 <- 
+# coord_1 <- aa
 lat_1 <- places$results$geometry$viewport
 lat_1
 
@@ -35,10 +39,10 @@ burguer_points <-
 
 plot(burguer_points, pch=".", col="darkred")
 
-burguer_map <- qmap("guadalajara", zoom=12, maptype="hybrid")
+burguer_map <- qmap("guadalajara", zoom=13, maptype="hybrid")
 
 burguer_map + geom_point(data = places_df, 
                          aes(x = places_df$geometry$location$lng, 
                              y = places_df$geometry$location$lat),
-                         color="green", size=3, alpha=0.5)
+                         color="red", size=3, alpha=0.5)
 
