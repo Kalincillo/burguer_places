@@ -60,10 +60,17 @@ gdl_burger_3 <- google_places(search_string='burger',
                               radius=rad,
                               key=Sys.getenv("PASSWORD"),
                               page_token=gdl_burger_2$token)
-# append the 3 results
-gdl <- rows_append(gdl_burger$results, gdl_burger_2$results) %>% 
-  rows_append(gdl_burger_3$results)
 
+# append the 3 results and filter restaurants with more than 100 reviews
+gdl <- rows_append(gdl_burger$results, gdl_burger_2$results) %>% 
+  rows_append(gdl_burger_3$results) %>% 
+  filter(user_ratings_total > 100)
+
+# Filter top 10 burger places
+gdl <- arrange(gdl, desc(rating)) %>% head(10)
+
+
+# **************************************************************************
 # ************************** ZAPOPAN ******************************************
 # Zapopan burger places 1, 2 and 3 token
 zap_burger <- google_places(search_string='burger',
@@ -97,6 +104,7 @@ zap_burger_3 <- google_places(search_string='burger',
 zap <- rows_append(zap_burger$results, zap_burger_2$results) %>% 
   rows_append(zap_burger_3$results)
 
+# **************************************************************************
 # ***************************** TLAQUEPAQUE ***********************************
 # Tlaquepaque burger places 1, 2 and 3 token
 tlq_burger <- google_places(search_string='burger',
