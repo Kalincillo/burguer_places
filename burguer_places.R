@@ -3,21 +3,23 @@
 # and the distance between them, i will use the rating system from
 # Google maps and connect to the Google cloud API with R
 
-# -------------------------- LIBRARIES ----------------------------------------
+# LIBRARIES -------
+
 library(ggmap)
 library(mapproj)
 library(googleway)
 library(sp)
 library(dplyr)
-# -----------------------------------------------------------------------------
 
-# -----------------------------------------------------------------------------
-# increase number of prints
+# ------------------
+
+# increase number of prints and save working directory
+wd <- getwd()
 options(max.print = 2000)
 
 # Coordinates for each zone
 gdl_c <- c(20.687147541385254, -103.35064301216147)
-zap_c <- c(20.72497886572655, -103.39110428359953)
+zap_c <- c(20.738869202419636, -103.40146986619241)
 tlq_c <- c(20.639473311590486, -103.31204195796764)
 ton_c <- c(20.623958671818926, -103.24131114715028)
 tlj_c <- c(20.475015349386634, -103.44819685025686)
@@ -25,7 +27,7 @@ sal_c <- c(20.519990183452695, -103.17931472569043)
 
 # radius of approximately 3 km, if it is longer it can go beyond the 
 # limit of the zone
-rad <- 3000
+rad <- 2800
 
 # register to the API
 register_google(Sys.getenv("PASSWORD"))
@@ -69,6 +71,13 @@ gdl <- rows_append(gdl_burger$results, gdl_burger_2$results) %>%
 # Filter top 10 burger places
 gdl <- arrange(gdl, desc(rating)) %>% head(10)
 
+# Check manually if they are in fact in Guadalajara  and save the files 
+# in a csv file 
+write.csv(gdl$name, file=file.path(wd, "/gdl.csv"))
+
+# *************************** GUADALAJARA *************************************
+# *****************************************************************************
+
 
 # **************************************************************************
 # ************************** ZAPOPAN ******************************************
@@ -107,6 +116,12 @@ zap <- rows_append(zap_burger$results, zap_burger_2$results) %>%
 
 # Filter top 10 burger places
 zap <- arrange(zap, desc(rating)) %>% head(10)
+# Check manually if they are in fact in Guadalajara  and save the files 
+# in a csv file 
+write.csv(gdl$name, file=file.path(wd, "/zap.csv"))
+
+# ***************************** ZAPOPAN ***************************************
+# *****************************************************************************
 
 
 # **************************************************************************
@@ -137,12 +152,24 @@ tlq_burger_3 <- google_places(search_string='burger',
                                location=tlq_c,
                                radius=rad,
                                key=Sys.getenv("PASSWORD"),
-                               page_token=tlq_burger_2$next_page_token)
+                               page_token=token)
 
 # append the 3 results
 tlq <- rows_append(tlq_burger$results, tlq_burger_2$results) %>% 
-  rows_append(tlq_burger_3$results)
+  rows_append(tlq_burger_3$results) %>% 
+  filter(user_ratings_total > 100)
 
+# Filter top 10 burger places
+tlq <- arrange(tlq, desc(rating)) %>% head(10)
+# Check manually if they are in fact in Guadalajara  and save the files 
+# in a csv file 
+write.csv(tlq$name, file=file.path(wd, "/tlq.csv"))
+
+# ******************************* TLAQUEPAQUE *********************************
+# *****************************************************************************
+
+
+# *****************************************************************************
 # ***************************** TONALA ****************************************
 # Tonala burger places 1, 2 and 3 token
 ton_burger <- google_places(search_string='burger',
@@ -175,6 +202,10 @@ ton_burger_3 <- google_places(search_string='burger',
 # append the 3 results
 ton <- rows_append(ton_burger$results, ton_burger_2$results) %>% 
   rows_append(ton_burger_3$results)
+  
+
+# ***************************** TONALA ****************************************
+# *****************************************************************************
 
 
 # ***************************** TLAJOMULCO ************************************
