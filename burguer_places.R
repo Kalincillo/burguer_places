@@ -17,6 +17,10 @@ library(dplyr)
 wd <- getwd()
 options(max.print = 2000)
 
+# columns of interest
+keeps <- c("formatted_address", "name", 
+           "rating", "user_ratings_total")
+
 # Coordinates for each zone
 gdl_c <- c(20.687147541385254, -103.35064301216147)
 zap_c <- c(20.738869202419636, -103.40146986619241)
@@ -66,14 +70,25 @@ gdl_burger_3 <- google_places(search_string='burger',
 # append the 3 results and filter restaurants with more than 100 reviews
 gdl <- rows_append(gdl_burger$results, gdl_burger_2$results) %>% 
   rows_append(gdl_burger_3$results) %>% 
-  filter(user_ratings_total > 100)
+  filter(user_ratings_total > 100) %>% 
+  data.frame()
 
 # Filter top 10 burger places
 gdl <- arrange(gdl, desc(rating)) %>% head(10)
 
+# Add the subset of locations
+locations <- gdl$geometry$location
+
+
+# Clean unused columns
+gdl <- subset(gdl, select = keeps)
+
+# append the locations
+gdl <- cbind(gdl, locations)
+
 # Check manually if they are in fact in Guadalajara  and save the files 
 # in a csv file 
-write.csv(gdl$name, file=file.path(wd, "/gdl.csv"))
+write.csv(gdl, file=file.path(wd, "/gdl.csv"))
 
 # *************************** GUADALAJARA *************************************
 # *****************************************************************************

@@ -1,11 +1,11 @@
-"","x"
-"1","Louie Burger Americana"
-"2","Allin Burgers"
-"3","Bistro 70 - Burger & Pizza"
-"4","Daniel's Burger gdl"
-"5","Trip's Burger Colonia Americana"
-"6","Guada Burger"
-"7","Grill Burgers"
-"8","Pig's Pearls"
-"9","Burger Club"
-"10","Papas Y Burger"
+,formatted_address,name,rating,user_ratings_total,lat,lng
+1,"C. Pedro Moreno 1290, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",Louie Burger Americana,4.9,3747,20.6756785,-103.3637448
+2,"C. Escorza 323, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",Allin Burgers,4.8,235,20.6719242,-103.3584611
+3,"Plaza ANNA, C. Francisco Rojas González 524-Local A, Ladrón de Guevara, Ladron De Guevara, 44600 Guadalajara, Jal., Mexico",Bistro 70 - Burger & Pizza,4.8,143,20.6847527,-103.3785256
+4,"Calle Mesa del Nte 289, Colonia Belisario Domínguez, 44320 Guadalajara, Jal., Mexico",Daniel's Burger gdl,4.8,114,20.7057063,-103.318701
+5,"C. Colonias 221, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",Trip's Burger Colonia Americana,4.7,340,20.6727368,-103.3659451
+6,"Av. Fray Antonio Alcalde 159-local 27, Zona Centro, 44100 Guadalajara, Jal., Mexico",Guada Burger,4.7,358,20.6789639,-103.3477966
+7,"C. Joaquín Angulo 1427, Santa Teresita, 44600 Guadalajara, Jal., Mexico",Grill Burgers,4.7,129,20.6820474,-103.3676168
+8,"C. Gral. Coronado 79, Col Americana, Zona Centro, 44100 Guadalajara, Jal., Mexico",Pig's Pearls,4.7,6729,20.6773929,-103.365225
+9,"C. Fermín Riestra 1715, Moderna, 44190 Guadalajara, Jal., Mexico",Burger Club,4.6,1739,20.6662882,-103.3629466
+10,"C. Tikal 2197, Monumental, 44320 Guadalajara, Jal., Mexico",Papas Y Burger,4.6,386,20.7052358,-103.3238799
