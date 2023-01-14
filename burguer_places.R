@@ -13,6 +13,7 @@ library(dplyr)
 
 # ------------------
 
+# ----------------------------- SET-UP ----------------------------------------
 # increase number of prints and save working directory
 wd <- getwd()
 options(max.print = 2000)
@@ -36,7 +37,9 @@ rad <- 2800
 # register to the API
 register_google(Sys.getenv("PASSWORD"))
 
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------
+
+# *****************************************************************************
 # *************************** GUADALAJARA *************************************
 
 # Guadalajara burger places 1, 2 and 3 token
@@ -71,20 +74,20 @@ gdl_burger_3 <- google_places(search_string='burger',
 gdl <- rows_append(gdl_burger$results, gdl_burger_2$results) %>% 
   rows_append(gdl_burger_3$results) %>% 
   filter(user_ratings_total > 100) %>% 
-  data.frame()
+  data.frame() 
 
 # Filter top 10 burger places
 gdl <- arrange(gdl, desc(rating)) %>% head(10)
 
 # Add the subset of locations
-locations <- gdl$geometry$location
-
+locations_gdl <- gdl$geometry$location
 
 # Clean unused columns
 gdl <- subset(gdl, select = keeps)
 
-# append the locations
-gdl <- cbind(gdl, locations)
+# append the locations and reordering
+gdl <- cbind(gdl, locations_gdl)
+gdl <- gdl[, c(2, 1, 3, 4, 5, 6)]
 
 # Check manually if they are in fact in Guadalajara  and save the files 
 # in a csv file 
@@ -124,16 +127,28 @@ zap_burger_3 <- google_places(search_string='burger',
                              key=Sys.getenv("PASSWORD"),
                              page_token=token)
 
-# append the 3 results
+# append the 3 results and filter restaurants with more than 100 reviews
 zap <- rows_append(zap_burger$results, zap_burger_2$results) %>% 
   rows_append(zap_burger_3$results) %>% 
-  filter(user_ratings_total > 100)
+  filter(user_ratings_total > 100) %>% 
+  data.frame()
 
 # Filter top 10 burger places
 zap <- arrange(zap, desc(rating)) %>% head(10)
-# Check manually if they are in fact in Guadalajara  and save the files 
+
+# Add the subset of locations
+locations_zap <- zap$geometry$location
+
+# Clean unused columns
+zap <- subset(zap, select = keeps)
+
+# append the locations and reordering
+zap <- cbind(zap, locations_zap)
+zap <- zap[, c(2, 1, 3, 4, 5, 6)]
+
+# Check manually if they are in fact in Zapopan  and save the files 
 # in a csv file 
-write.csv(gdl$name, file=file.path(wd, "/zap.csv"))
+write.csv(zap$name, file=file.path(wd, "/zap.csv"))
 
 # ***************************** ZAPOPAN ***************************************
 # *****************************************************************************
