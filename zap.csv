@@ -1,11 +1,11 @@
-"","x"
-"1","Louie Burger Americana"
-"2","Allin Burgers"
-"3","Bistro 70 - Burger & Pizza"
-"4","Daniel's Burger gdl"
-"5","Trip's Burger Colonia Americana"
-"6","Guada Burger"
-"7","Grill Burgers"
-"8","Pig's Pearls"
-"9","Burger Club"
-"10","Papas Y Burger"
+,name,formatted_address,rating,user_ratings_total,lat,lng
+1,Willy´s Grill Burger,"C. Arco de La Estrella 506, 2da sección, Arcos de Zapopan, 45130 Zapopan, Jal., Mexico",4.9,60,20.742058,-103.412424
+2,Chuchupa Burger,"Av Industria Textil 497_15, Villas de Zapopan, 45130 Zapopan, Jal., Mexico",4.8,254,20.7546779,-103.3892166
+3,Trip’s Burger Andares,"Boulevard Puerta de Hierro 5153 Mercado Andares, Puerta de Hierro, 45116 Zapopan, Jal., Mexico",4.7,632,20.7097758,-103.413573
+4,Weldon Burger,"San Jorge 195, Seattle, 45150 Zapopan, Jal., Mexico",4.6,329,20.7174147,-103.3744232
+5,Casa de la hamburguesa gourmet y alitas,"Av. Arco del Triunfo 419 45130, Arcos de Zapopan, 45130 Zapopan, Jal., Mexico",4.6,105,20.7386974,-103.4104069
+6,Burger Bros,"45130, Av Valdepeñas 3090, Francisco Villa, Zapopan, Jal., Mexico",4.5,236,20.7522901,-103.4002005
+7,El Fogón Burgers & Ribs,"C. Tarragona 848, Lomas de Zapopan, 45130 Zapopan, Jal., Mexico",4.5,266,20.7487491,-103.401986
+8,Uncle Beef Zona Real,"Av. Sta. Margarita 4522-Local 3, Jardín Real, 45136 Zapopan, Jal., Mexico",4.5,445,20.7300323,-103.4390163
+9,DON BURGER Burgers Wings & Snacks,"C. Arco de Tito 964, Arcos de Zapopan, 45130 Zapopan, Jal., Mexico",4.4,73,20.7395379,-103.4090956
+10,The Burger Shop,"Paulino Navarro 916-A, Jardines de La Seattle, Los Maestros, 45150 Zapopan, Jal., Mexico",4.4,188,20.7226178,-103.3712441

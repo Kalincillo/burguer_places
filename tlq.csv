@@ -1,11 +1,6 @@
-"","x"
-"1","REB retro eat burger"
-"2","Hamburguesas Charls"
-"3","Burger y Tacos Roberts"
-"4","Guada Burger"
-"5","Peter's Burgers"
-"6","Oso burgers"
-"7","Hawaii Burgers"
-"8","La Burger Grill"
-"9","Burger Lunch"
-"10","Burger Polo's"
+"","name","formatted_address","rating","user_ratings_total","lat","lng"
+"1","Burger y Tacos Roberts","Oleoducto, Textiles esq, Alamo Industrial, 45593 San Pedro Tlaquepaque, Jal., Mexico",4.7,357,20.6212444,-103.3220062
+"2","Hawaii Burgers","Av. Marcos Montero Ruiz 835 A, Alamo Lomas, 45560 San Pedro Tlaquepaque, Jal., Mexico",4.5,554,20.6318574,-103.3153679
+"3","La Burger Grill","C. Pedrera # 27, Las Juntitas, 45590 San Pedro Tlaquepaque, Jal., Mexico",4.5,225,20.6079346,-103.3314092
+"4","Burger King Fórum Tlaquepaque","Fórum Tlaquepaque, Blvd. Gral. Marcelino García Barragán 2077, Prados del Nilo, 44840 San Pedro Tlaquepaque, Jal., Mexico",4.1,1544,20.6474346,-103.3194429
+"5","Big Boy Burger","C. Glendale 450, Colonial Tlaquepaque, 45570 San Pedro Tlaquepaque, Jal., Mexico",3.9,75,20.6296492,-103.3072936
