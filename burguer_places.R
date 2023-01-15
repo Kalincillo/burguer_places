@@ -25,8 +25,8 @@ keeps <- c("formatted_address", "name",
 # Coordinates for each zone
 # gdl_c <- c(20.687147541385254, -103.35064301216147)
 # zap_c <- c(20.738511340844003, -103.40372375191114)
-tlq_c <- c(20.639473311590486, -103.31204195796764)
-ton_c <- c(20.623958671818926, -103.24131114715028)
+# tlq_c <- c(20.639473311590486, -103.31204195796764)
+# ton_c <- c(20.623958671818926, -103.24131114715028)
 tlj_c <- c(20.475015349386634, -103.44819685025686)
 sal_c <- c(20.519990183452695, -103.17931472569043)
 
@@ -248,10 +248,37 @@ ton_burger_3 <- google_places(search_string='burger',
                                key=Sys.getenv("PASSWORD"),
                                page_token=token)
 
+# reorder permanently_closed column
+ton_burger_3$results <- ton_burger_3$results[, c(1:15, 17, 16)]
+
 # append the 3 results
 ton <- rows_append(ton_burger$results, ton_burger_2$results) %>% 
-  rows_append(ton_burger_3$results)
-  
+  rows_append(ton_burger_3$results[1:16])
+
+# Clean data from other region in this case Guadalajara and Tlaquepaque 
+addr <- ton$formatted_address
+ton <- filter(ton, 
+              !grepl("Guadalajara", addr) & !grepl("Tlaquepaque", addr)) %>% 
+  data.frame()
+
+# Filter results with more than 10 user ratings 
+ton <- filter(ton, user_ratings_total > 10)
+
+# Filter top 10 and sort by rating
+ton <- arrange(ton, desc(rating)) %>% head(10)
+
+# Add the subset of locations
+locations_ton <- ton$geometry$location
+
+# Clean unused columns
+ton <- subset(ton, select = keeps)
+
+# append the locations and reordering
+ton <- cbind(ton, locations_ton)
+ton <- ton[, c(2, 1, 3, 4, 5, 6)]
+# Check manually if they are in fact in Guadalajara  and save the files 
+# in a csv file 
+write.csv(ton, file=file.path(wd, "/ton.csv"))
 
 # ***************************** TONALA ****************************************
 # *****************************************************************************
@@ -286,13 +313,16 @@ tlj_burger_3 <- google_places(search_string='burger',
                                key=Sys.getenv("PASSWORD"),
                                page_token=token)
 
+# reorder columns to be able to append them after
+tlj_burger_2$results <- tlj_burger_2$results[, c(1:11, 13:16, 12)]
+
 # append the 3 results
 tlj <- rows_append(tlj_burger$results, tlj_burger_2$results) %>% 
   rows_append(tlj_burger_3$results)
 
 # ****************************** EL SALTO *************************************
 # El salto burger places
-sal_burger <- google_places(search_string='burger',
+sal_burger <- google_places(search_string='bureger',
                       location=sal_c,
                       radius=rad,
                       key=Sys.getenv("PASSWORD"))
