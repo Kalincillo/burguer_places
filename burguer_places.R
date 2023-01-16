@@ -99,60 +99,60 @@ write.csv(gdl, file=file.path(wd, "/gdl.csv"))
 
 # **************************************************************************
 # ************************** ZAPOPAN ******************************************
-# # Zapopan burger places 1, 2 and 3 token
-# zap_burger <- google_places(search_string='burger',
-#                              location=zap_c,
-#                              radius=rad,
-#                              key=Sys.getenv("PASSWORD"))
-# 
-# token <- zap_burger$next_page_token
-# 
-# # Delay to prevent the API to generate the token
-# Sys.sleep(5)
-# 
-# zap_burger_2 <- google_places(search_string='burger',
-#                              location=zap_c,
-#                              radius=rad,
-#                              key=Sys.getenv("PASSWORD"),
-#                              page_token=token)
-# 
-# token <- zap_burger_2$next_page_token
-# 
-# # Delay to prevent the API to generate the token
-# Sys.sleep(5)
-# 
-# zap_burger_3 <- google_places(search_string='burger',
-#                              location=zap_c,
-#                              radius=rad,
-#                              key=Sys.getenv("PASSWORD"),
-#                              page_token=token)
-# 
-# # append the 3 results 
-# zap <- rows_append(zap_burger$results, zap_burger_2$results[1:16]) %>% 
-#   rows_append(zap_burger_3$results) 
-# 
-# # Clean data from other region in this case Guadalajara and filter 
-# # restaurants with more than 50 reviews
-# addr <- zap$formatted_address
-# zap <- filter(zap, !grepl("Guadalajara", addr) & user_ratings_total > 50) %>% 
-#   data.frame()
-# 
-# # Filter top 10 burger places
-# zap <- arrange(zap, desc(rating)) %>% head(10)
-# 
-# # Add the subset of locations
-# locations_zap <- zap$geometry$location
-# 
-# # Clean unused columns
-# zap <- subset(zap, select = keeps)
-# 
-# # append the locations and reordering
-# zap <- cbind(zap, locations_zap)
-# zap <- zap[, c(2, 1, 3, 4, 5, 6)]
-# 
-# # Check manually if they are in fact in Zapopan  and save the files 
-# # in a csv file 
-# write.csv(zap, file=file.path(wd, "/zap.csv"))
+# Zapopan burger places 1, 2 and 3 token
+zap_burger <- google_places(search_string='burger',
+                             location=zap_c,
+                             radius=rad,
+                             key=Sys.getenv("PASSWORD"))
+
+token <- zap_burger$next_page_token
+
+# Delay to prevent the API to generate the token
+Sys.sleep(5)
+
+zap_burger_2 <- google_places(search_string='burger',
+                             location=zap_c,
+                             radius=rad,
+                             key=Sys.getenv("PASSWORD"),
+                             page_token=token)
+
+token <- zap_burger_2$next_page_token
+
+# Delay to prevent the API to generate the token
+Sys.sleep(5)
+
+zap_burger_3 <- google_places(search_string='burger',
+                             location=zap_c,
+                             radius=rad,
+                             key=Sys.getenv("PASSWORD"),
+                             page_token=token)
+
+# append the 3 results
+zap <- rows_append(zap_burger$results, zap_burger_2$results) %>%
+  rows_append(zap_burger_3$results[1:16])
+
+# Clean data from other region in this case Guadalajara and filter
+# restaurants with more than 50 reviews
+addr <- zap$formatted_address
+zap <- filter(zap, !grepl("Guadalajara", addr) & user_ratings_total > 50) %>%
+  data.frame()
+
+# Filter top 10 burger places
+zap <- arrange(zap, desc(rating)) %>% head(10)
+
+# Add the subset of locations
+locations_zap <- zap$geometry$location
+
+# Clean unused columns
+zap <- subset(zap, select = keeps)
+
+# append the locations and reordering
+zap <- cbind(zap, locations_zap)
+zap <- zap[, c(2, 1, 3, 4, 5, 6)]
+
+# Check manually if they are in fact in Zapopan  and save the files
+# in a csv file
+write.csv(zap, file=file.path(wd, "/zap.csv"))
 
 # ***************************** ZAPOPAN ***************************************
 # *****************************************************************************
