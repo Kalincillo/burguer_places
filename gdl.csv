@@ -1,11 +1,11 @@
-,name,formatted_address,rating,user_ratings_total,lat,lng
-1,Louie Burger Americana,"C. Pedro Moreno 1290, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",4.9,3750,20.6756785,-103.3637448
-2,Louie Burger Providencia,"Av Terranova 1073, Lomas de Providencia, 44647 Guadalajara, Jal., Mexico",4.9,1236,20.6926191,-103.3867273
-3,Daniel's Burger gdl,"Calle Mesa del Nte 289, Colonia Belisario Domínguez, 44320 Guadalajara, Jal., Mexico",4.8,114,20.7057063,-103.318701
-4,Allin Burgers,"C. Escorza 323, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",4.8,235,20.6719242,-103.3584611
-5,Pig's Pearls,"C. Gral. Coronado 79, Col Americana, Zona Centro, 44100 Guadalajara, Jal., Mexico",4.7,6729,20.6773929,-103.365225
-6,Trip's Burger Colonia Americana,"C. Colonias 221, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",4.7,340,20.6727368,-103.3659451
-7,Guada Burger,"Av. Fray Antonio Alcalde 159-local 27, Zona Centro, 44100 Guadalajara, Jal., Mexico",4.7,358,20.6789639,-103.3477966
-8,Grill Burgers,"C. Joaquín Angulo 1427, Santa Teresita, 44600 Guadalajara, Jal., Mexico",4.7,129,20.6820474,-103.3676168
-9,Nanos Burger,"Calle Mesa del Nte 543, San Vicente, 44330 Guadalajara, Jal., Mexico",4.7,166,20.7039021,-103.3152269
-10,Burger Club,"C. Fermín Riestra 1715, Moderna, 44190 Guadalajara, Jal., Mexico",4.6,1739,20.6662882,-103.3629466
+"","name","formatted_address","rating","user_ratings_total","lat","lng"
+"1","Louie Burger Americana","C. Pedro Moreno 1290, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",4.9,3767,20.6756785,-103.3637448
+"2","Louie Burger Providencia","Av Terranova 1073, Lomas de Providencia, 44647 Guadalajara, Jal., Mexico",4.9,1243,20.6926191,-103.3867273
+"3","Bistro 70 - Burger & Pizza","Plaza ANNA, C. Francisco Rojas González 524-Local A, Ladrón de Guevara, Ladron De Guevara, 44600 Guadalajara, Jal., Mexico",4.8,143,20.6847527,-103.3785256
+"4","Daniel's Burger gdl","Calle Mesa del Nte 289, Colonia Belisario Domínguez, 44320 Guadalajara, Jal., Mexico",4.8,115,20.7057063,-103.318701
+"5","Allin Burgers","C. Escorza 323, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",4.8,237,20.6719242,-103.3584611
+"6","Grill Burgers","C. Joaquín Angulo 1427, Santa Teresita, 44600 Guadalajara, Jal., Mexico",4.7,129,20.6820474,-103.3676168
+"7","Pig's Pearls","C. Gral. Coronado 79, Col Americana, Zona Centro, 44100 Guadalajara, Jal., Mexico",4.7,6732,20.6773929,-103.365225
+"8","Trip's Burger Colonia Americana","C. Colonias 221, Col Americana, Americana, 44160 Guadalajara, Jal., Mexico",4.7,340,20.6727368,-103.3659451
+"9","Guada Burger","Av. Fray Antonio Alcalde 159-local 27, Zona Centro, 44100 Guadalajara, Jal., Mexico",4.7,358,20.6789639,-103.3477966
+"10","Burger Club","C. Fermín Riestra 1715, Moderna, 44190 Guadalajara, Jal., Mexico",4.6,1742,20.6662882,-103.3629466
