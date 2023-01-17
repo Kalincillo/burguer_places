@@ -1,5 +1,4 @@
 
-
 # Read the 6 csv files
 gdl_csv <- read.csv("gdl.csv")
 zap_csv <- read.csv("zap.csv")
@@ -16,17 +15,26 @@ zmg_csv <- bind_rows(gdl_csv, zap_csv,
 # Sort by rating
 zmg_csv <- arrange(zmg_csv, desc(rating))
 
-# drom id column and reorder columns
-zmg_csv <- subset(zmg_csv, select = keeps)
-zmg_csv <- zmg_csv[, c(2, 3, 1, 4)]
+# drop id column and reorder columns
+zmg_csv <- subset(zmg_csv, select = c(keeps, 'lat', 'lng'))
+zmg_csv <- zmg_csv[, c(2, 3, 1, 4, 5, 6)]
 
 # Save csv file
 write.csv(zmg_csv, file=file.path(wd, "/zmg.csv"))
 
 # *****************************************************************************
-# ************************* MAPPING *******************************************
+# ***************************** MAPPING ***************************************
+
+mp <- google_map(
+  key = Sys.getenv("PASSWORD"),
+  data = zmg_csv,
+  location = gdl_c,
+  zoom = 14) %>% 
+  add_markers(lat='lat', lon='lng', mouse_over = 'name' )
 
 
+# *****************************************************************************
+# *****************************************************************************
 
 
 
